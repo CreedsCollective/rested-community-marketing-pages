@@ -1,6 +1,6 @@
 # The Rested + Evie Phillips — marketing pages
 
-One GitHub repo, three websites (the homepage site also serves /links and /book). Each website is its own Cloudflare Pages project
+One GitHub repo, three websites (the homepage site also serves /links, /book and /contact). Each website is its own Cloudflare Pages project
 that publishes automatically a minute or two after a commit to `main`.
 
 | Website | What it's for | Folder in this repo | Cloudflare Pages project |
@@ -8,6 +8,7 @@ that publishes automatically a minute or two after a commit to `main`.
 | https://www.eviephillips.com | Evie's homepage / About. Linked from "About" in the Kajabi member menu. | `home/` | `evie-phillips-home` |
 | https://www.eviephillips.com/links | Link in bio (replaces Stan Store). Put this in Instagram/TikTok bios. | `home/links/` | `evie-phillips-home` |
 | https://www.eviephillips.com/book | 1:1 coaching booking page ($597 → $333), GHL calendar embedded. | `home/book/` | `evie-phillips-home` |
+| https://www.eviephillips.com/contact | Contact form for everyone (public + members). Messages go to GoHighLevel. | `home/contact/` | `evie-phillips-home` |
 | https://join.eviephillips.com | The Rested **sales page** (cart open). Buttons go to Kajabi checkout. | `sales/` | `rested-community-join` |
 | https://waitlist.eviephillips.com | The Rested **waitlist** (cart closed). Form sends signups to GoHighLevel. | root: `index.html`, `assets/`, `functions/` | `rested-community-waitlist` |
 
@@ -58,6 +59,18 @@ When doors close, the homepage buttons switch to the waitlist (see below).
   the sub-account's Stripe connection. **If the price changes, change it in GHL too**, or the page and the charge won't match.
 - Direct booking link (no branding): https://api.leadconnectorhq.com/widget/bookings/coaching-call-with-evie
 - The homepage's "Book a 1:1" button goes here (`bookUrl: "/book/"` in `home/index.html`).
+
+## Contact form
+
+**eviephillips.com/contact** (`home/contact/index.html`) is the one contact form, for the public and for members
+(the Kajabi member menu's "Contact" links here).
+- The form sends to `https://waitlist.eviephillips.com/api/contact` (`functions/api/contact.js`), which checks the
+  message and forwards it to a GoHighLevel inbound webhook. That webhook URL is the `GHL_CONTACT_WEBHOOK_URL`
+  variable on the `rested-community-waitlist` Cloudflare Pages project. It is never in this repo.
+- In GoHighLevel (sub-account **The Rested by Evie Phillips**), the workflow **Contact form → Evie** creates or
+  updates the contact, tags it `rested-contact`, adds a task "Contact form: (topic)" with the message, and emails
+  Evie. Fields sent: first_name, last_name, email, phone, topic, message, source, submitted_at.
+- Topics in the dropdown must match the list in `functions/api/contact.js` (`TOPICS`); edit both together.
 
 ## Re-exporting the waitlist from the design canvas
 
