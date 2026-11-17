@@ -1,11 +1,13 @@
 # The Rested + Evie Phillips — marketing pages
 
-One GitHub repo, three websites. Each website is its own Cloudflare Pages project
+One GitHub repo, three websites (the homepage site also serves /links and /book). Each website is its own Cloudflare Pages project
 that publishes automatically a minute or two after a commit to `main`.
 
 | Website | What it's for | Folder in this repo | Cloudflare Pages project |
 |---|---|---|---|
 | https://www.eviephillips.com | Evie's homepage / About. Linked from "About" in the Kajabi member menu. | `home/` | `evie-phillips-home` |
+| https://www.eviephillips.com/links | Link in bio (replaces Stan Store). Put this in Instagram/TikTok bios. | `home/links/` | `evie-phillips-home` |
+| https://www.eviephillips.com/book | 1:1 coaching booking page ($597 → $333), GHL calendar embedded. | `home/book/` | `evie-phillips-home` |
 | https://join.eviephillips.com | The Rested **sales page** (cart open). Buttons go to Kajabi checkout. | `sales/` | `rested-community-join` |
 | https://waitlist.eviephillips.com | The Rested **waitlist** (cart closed). Form sends signups to GoHighLevel. | root: `index.html`, `assets/`, `functions/` | `rested-community-waitlist` |
 
@@ -30,7 +32,9 @@ When doors close, the homepage buttons switch to the waitlist (see below).
 
 - **Close doors (Sunday):** in `home/index.html`, find `joinMode: "open"` near the bottom and change it to
   `joinMode: "waitlist"`. Every Join button on the homepage then goes to the waitlist.
-- **Booking link:** in `home/index.html`, set `bookUrl:` to the booking page address.
+- **Booking link:** in `home/index.html`, `bookUrl:` points to `/book/` (the branded booking page).
+- **Link in bio:** `home/links/` → eviephillips.com/links. Replaces Stan Store.
+- **Booking page:** `home/book/` → eviephillips.com/book. $597 → $333 offer with the GHL calendar embedded (The Rested sub-account, "One-on-One Coaching Call with Evie").
 - **Homepage photos:** put the new photo in `home/assets/` and change the matching `src="assets/..."`.
 
 ## How an edit goes live
@@ -38,6 +42,22 @@ When doors close, the homepage buttons switch to the waitlist (see below).
 1. Edit the file (in a Claude session, or GitHub → the file → pencil icon).
 2. Commit to `main` with a short note of what changed.
 3. Cloudflare publishes it. Check the live site after a minute or two.
+
+## Link in bio + 1:1 booking
+
+**eviephillips.com/links** (`home/links/index.html`) is the link in bio for Instagram and TikTok. It replaced Stan Store.
+- Buttons: Join the rested Community → join.eviephillips.com · Work with Evie → /book · More about Evie → / (homepage).
+- Icons, in order: Instagram, TikTok, LinkedIn, email (evie@eviephillips.com).
+- Photo: `home/assets/links-hero.jpg`. To change it, replace that file with a new one of the same name.
+
+**eviephillips.com/book** (`home/book/index.html`) sells the 1:1 coaching call.
+- Shows $597 crossed out and $333. These are just text on the page; edit both spots if the price changes.
+- The calendar on the page is embedded from GoHighLevel: sub-account **The Rested by Evie Phillips** → Calendars →
+  **One-on-One Coaching Call with Evie** (1 hour, assigned to Evie, weekdays 8–5 ET by default).
+- Payment happens inside that GHL calendar: Advanced settings → Payments, Live mode, charges $333 upfront through
+  the sub-account's Stripe connection. **If the price changes, change it in GHL too**, or the page and the charge won't match.
+- Direct booking link (no branding): https://api.leadconnectorhq.com/widget/bookings/coaching-call-with-evie
+- The homepage's "Book a 1:1" button goes here (`bookUrl: "/book/"` in `home/index.html`).
 
 ## Re-exporting the waitlist from the design canvas
 
