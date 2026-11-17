@@ -30,7 +30,9 @@ When doors close, the homepage buttons switch to the waitlist (see below).
 
 - **Close doors (Sunday):** in `home/index.html`, find `joinMode: "open"` near the bottom and change it to
   `joinMode: "waitlist"`. Every Join button on the homepage then goes to the waitlist.
-- **Booking link:** in `home/index.html`, set `bookUrl:` to the booking page address.
+- **Booking link:** in `home/index.html`, `bookUrl:` points to `/book/` (the branded booking page).
+- **Link in bio:** `home/links/` → eviephillips.com/links. Replaces Stan Store.
+- **Booking page:** `home/book/` → eviephillips.com/book. $597 → $333 offer with the GHL calendar embedded (The Rested sub-account, "One-on-One Coaching Call with Evie").
 - **Homepage photos:** put the new photo in `home/assets/` and change the matching `src="assets/..."`.
 
 ## How an edit goes live
