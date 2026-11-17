@@ -43,6 +43,22 @@ When doors close, the homepage buttons switch to the waitlist (see below).
 2. Commit to `main` with a short note of what changed.
 3. Cloudflare publishes it. Check the live site after a minute or two.
 
+## Link in bio + 1:1 booking
+
+**eviephillips.com/links** (`home/links/index.html`) is the link in bio for Instagram and TikTok. It replaced Stan Store.
+- Buttons: Join the rested Community → join.eviephillips.com · Work with Evie → /book · More about Evie → / (homepage).
+- Icons, in order: Instagram, TikTok, LinkedIn, email (evie@eviephillips.com).
+- Photo: `home/assets/links-hero.jpg`. To change it, replace that file with a new one of the same name.
+
+**eviephillips.com/book** (`home/book/index.html`) sells the 1:1 coaching call.
+- Shows $597 crossed out and $333. These are just text on the page; edit both spots if the price changes.
+- The calendar on the page is embedded from GoHighLevel: sub-account **The Rested by Evie Phillips** → Calendars →
+  **One-on-One Coaching Call with Evie** (1 hour, assigned to Evie, weekdays 8–5 ET by default).
+- Payment happens inside that GHL calendar: Advanced settings → Payments, Live mode, charges $333 upfront through
+  the sub-account's Stripe connection. **If the price changes, change it in GHL too**, or the page and the charge won't match.
+- Direct booking link (no branding): https://api.leadconnectorhq.com/widget/bookings/coaching-call-with-evie
+- The homepage's "Book a 1:1" button goes here (`bookUrl: "/book/"` in `home/index.html`).
+
 ## Re-exporting the waitlist from the design canvas
 
 `tools/export.py <Main.dc.html> <folder with the canvas's /_blob images> <this repo>` turns the canvas file into
