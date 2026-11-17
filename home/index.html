@@ -141,6 +141,8 @@ nav.main .btn{min-height:44px;padding:0 20px;font-size:12px}
 .b p{color:#333;margin:0;font-size:18px;line-height:1.4}
 .rested .join{text-align:center}
 .rested .join .hand{display:block;font-size:24px;color:var(--pink2);margin-top:22px}
+.rested .join .login{display:inline-block;margin-top:18px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--pink2)}
+.rested .join .login:hover{color:var(--pink2)}
 
 /* kind words */
 .kind{background:#fff;border-top:1.5px solid var(--ink)}
@@ -399,6 +401,7 @@ footer .legal a{color:#aab3bf}
       <a href="#the-rested">The Rested</a>
       <a href="#work">Work with me</a>
       <a href="CONTACT_URL">Contact</a>
+      <a href="LOGIN_URL" aria-label="Log into your account for The Rested">Member login</a>
       <a class="btn berry js-join" href="JOIN_URL">Join the Rested</a>
     </nav>
   </div>
@@ -535,6 +538,7 @@ footer .legal a{color:#aab3bf}
     <div class="join rv">
       <a class="btn pink js-join" href="JOIN_URL"><span class="js-join-label">Join the Rested</span> <span aria-hidden="true">→</span></a>
       <span class="hand js-join-note">there’s a seat with your name on it ♡</span>
+      <a class="login" href="LOGIN_URL">Already a member? Log into your account for The Rested <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -621,6 +625,7 @@ footer .legal a{color:#aab3bf}
         <a href="#the-rested">The Rested</a>
         <a href="#work">Work with me</a>
         <a href="CONTACT_URL">Contact</a>
+        <a href="LOGIN_URL" aria-label="Log into your account for The Rested">Member login</a>
         <a href="https://www.instagram.com/evie_phillips/" rel="noopener">Instagram</a>
       </nav>
     </div>
@@ -636,7 +641,8 @@ var SETTINGS = {
   joinUrl: "https://join.eviephillips.com",
   waitlistUrl: "https://waitlist.eviephillips.com",
   bookUrl: "/book/",
-  contactUrl: "mailto:evie@eviephillips.com"
+  contactUrl: "mailto:evie@eviephillips.com",
+  loginUrl: "https://evie-phillips-the-rested.mykajabi.com/login"
 };
 /* ============================================ */
 (function(){
@@ -647,6 +653,7 @@ var SETTINGS = {
   var n = document.querySelector('.js-join-note'); if (n && wl) n.textContent = 'doors are closed for now. the waitlist gets in first ♡';
   document.querySelectorAll('a[href="BOOK_URL"]').forEach(function(a){ a.href = SETTINGS.bookUrl; });
   document.querySelectorAll('a[href="CONTACT_URL"]').forEach(function(a){ a.href = SETTINGS.contactUrl; });
+  document.querySelectorAll('a[href="LOGIN_URL"]').forEach(function(a){ a.href = SETTINGS.loginUrl; });
 
   var btn = document.querySelector('.menu-btn'), nav = document.getElementById('mainnav');
   btn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
