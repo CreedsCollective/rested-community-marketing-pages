@@ -1,11 +1,13 @@
 # The Rested + Evie Phillips — marketing pages
 
-One GitHub repo, three websites. Each website is its own Cloudflare Pages project
+One GitHub repo, three websites (the homepage site also serves /links and /book). Each website is its own Cloudflare Pages project
 that publishes automatically a minute or two after a commit to `main`.
 
 | Website | What it's for | Folder in this repo | Cloudflare Pages project |
 |---|---|---|---|
 | https://www.eviephillips.com | Evie's homepage / About. Linked from "About" in the Kajabi member menu. | `home/` | `evie-phillips-home` |
+| https://www.eviephillips.com/links | Link in bio (replaces Stan Store). Put this in Instagram/TikTok bios. | `home/links/` | `evie-phillips-home` |
+| https://www.eviephillips.com/book | 1:1 coaching booking page ($597 → $333), GHL calendar embedded. | `home/book/` | `evie-phillips-home` |
 | https://join.eviephillips.com | The Rested **sales page** (cart open). Buttons go to Kajabi checkout. | `sales/` | `rested-community-join` |
 | https://waitlist.eviephillips.com | The Rested **waitlist** (cart closed). Form sends signups to GoHighLevel. | root: `index.html`, `assets/`, `functions/` | `rested-community-waitlist` |
 
