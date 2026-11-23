@@ -35,6 +35,7 @@ When doors close, the homepage buttons switch to the waitlist (see below).
 - **Booking link:** in `home/index.html`, `bookUrl:` points to `/book/` (the branded booking page).
 - **Link in bio:** `home/links/` → eviephillips.com/links. Replaces Stan Store.
 - **Booking page:** `home/book/` → eviephillips.com/book. $597 → $333 offer with the GHL calendar embedded (The Rested sub-account, "One-on-One Coaching Call with Evie").
+- **My Story photos:** `home/story/photos/` → eviephillips.com/story/photos/… These are the photos for the "My Story: Defined by Grace" lesson in Kajabi (Start Here). Swap a photo by replacing the file with one of the same name.
 - **Homepage photos:** put the new photo in `home/assets/` and change the matching `src="assets/..."`.
 
 ## How an edit goes live
